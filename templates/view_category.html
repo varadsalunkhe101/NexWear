@@ -1,0 +1,65 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold text-primary">
+            Shop By Categories
+        </h2>
+
+        <p class="text-muted">
+            Explore premium fashion categories and discover trending styles
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        {% for row in value %}
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card h-100 shadow-sm border-0">
+
+                <img src="/{{ row[2] }}"
+                     class="card-img-top"
+                     style="height:250px;object-fit:cover;"
+                     alt="Category">
+
+                <div class="card-body">
+
+                    <h5 class="card-title fw-bold">
+                        {{ row[1] }}
+                    </h5>
+
+                    <p class="card-text text-muted">
+                        {{ row[3] }}
+                    </p>
+
+                </div>
+
+                <div class="card-footer bg-white border-0">
+
+                    <a href="{{ url_for('view_product', category=row[1]) }}"
+                       class="btn btn-primary w-100">
+
+                        View Products
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

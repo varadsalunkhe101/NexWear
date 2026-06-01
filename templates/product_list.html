@@ -1,0 +1,182 @@
+{% extends "adminbase.html" %}
+
+{% block body %}
+
+<div class="card shadow-sm border-0">
+
+    <div class="card-header bg-primary text-white">
+
+        <h4 class="mb-0">
+            Manage Products
+        </h4>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover align-middle">
+
+                <thead class="table-primary">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Size</th>
+                        <th>Image</th>
+                        <th>Brand</th>
+                        <th>Category</th>
+                        <th>Color</th>
+                        <th>Discount (%)</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for row in value %}
+
+                <tr>
+
+                    <form action="{{ url_for('update_product') }}"
+                          method="POST"
+                          enctype="multipart/form-data">
+
+                        <td>
+
+                            {{ row[0] }}
+
+                            <input type="hidden"
+                                   name="cid"
+                                   value="{{ row[0] }}">
+
+                        </td>
+
+                        <td>
+
+                            <input type="text"
+                                   name="product_name"
+                                   value="{{ row[1] }}"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input type="number"
+                                   name="price"
+                                   value="{{ row[2] }}"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input type="text"
+                                   name="size"
+                                   value="{{ row[3] }}"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <img src="/{{ row[4] }}"
+                                 class="img-thumbnail mb-2"
+                                 width="80">
+
+                            <input type="file"
+                                   name="product_image"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input type="text"
+                                   name="brand"
+                                   value="{{ row[5] }}"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input type="text"
+                                   name="category"
+                                   value="{{ row[6] }}"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input type="text"
+                                   name="color"
+                                   value="{{ row[7] }}"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <input type="number"
+                                   name="discount"
+                                   value="{{ row[8] }}"
+                                   class="form-control">
+
+                        </td>
+
+                        <td>
+
+                            <div class="d-flex gap-2">
+
+                                <button type="submit"
+                                        class="btn btn-success btn-sm">
+
+                                    Update
+
+                                </button>
+
+                    </form>
+
+                    <form action="{{ url_for('delete_product') }}"
+                          method="POST">
+
+                        <input type="hidden"
+                               name="cid"
+                               value="{{ row[0] }}">
+
+                        <button type="submit"
+                                class="btn btn-danger btn-sm">
+
+                            Delete
+
+                        </button>
+
+                    </form>
+
+                            </div>
+
+                        </td>
+
+                </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

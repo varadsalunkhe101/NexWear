@@ -1,0 +1,91 @@
+{% extends "adminbase.html" %}
+
+{% block body %}
+
+<div class="container py-4">
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-primary text-white">
+
+            <h4 class="mb-0">
+                Add Category
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <form action="{{ url_for('add_category') }}"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <!-- Category Name -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Category Name
+                    </label>
+
+                    <input type="text"
+                           name="category_name"
+                           class="form-control"
+                           required>
+
+                </div>
+
+                <!-- Category Image -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Category Image
+                    </label>
+
+                    <input type="file"
+                           name="category_image"
+                           class="form-control"
+                           accept=".jpg,.jpeg,.png,.webp"
+                           required>
+
+                </div>
+
+                <!-- Category Description -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Category Description
+                    </label>
+
+                    <textarea name="category_description"
+                              class="form-control"
+                              rows="4"></textarea>
+
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <button type="submit"
+                            class="btn btn-success">
+
+                        Add Category
+
+                    </button>
+
+                    <button type="reset"
+                            class="btn btn-danger">
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

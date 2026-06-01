@@ -1,0 +1,35 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container py-5">
+
+    <div class="text-center">
+
+        <h1 class="display-4 fw-bold text-primary">
+            Welcome to NexWear
+        </h1>
+
+        <p class="lead text-muted">
+            Discover the latest fashion trends and premium collections.
+        </p>
+
+        <div class="mt-4">
+
+            <a href="{{ url_for('view_category') }}"
+               class="btn btn-primary btn-lg me-2">
+                Browse Categories
+            </a>
+
+            <a href="{{ url_for('view_product') }}"
+               class="btn btn-success btn-lg">
+                View Products
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

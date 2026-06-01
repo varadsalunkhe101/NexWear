@@ -1,0 +1,39 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">My Orders</h2>
+
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for order in orders %}
+
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>₹{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[4] }}</td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

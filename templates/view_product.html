@@ -1,0 +1,118 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold text-primary">
+            Trending Products
+        </h2>
+
+        <p class="text-muted">
+            Explore premium fashion collections
+        </p>
+
+    </div>
+
+    {% if value %}
+
+    <div class="row g-4">
+
+        {% for product in value %}
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card h-100 shadow-sm border-0">
+
+                <!-- Product Image -->
+                <div class="position-relative">
+
+                    <img src="{{ url_for('static', filename=product[4]) }}"
+                         class="card-img-top"
+                         style="height:250px; object-fit:cover;"
+                         alt="{{ product[1] }}">
+
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-3">
+
+                        {{ product[8] }}% OFF
+
+                    </span>
+
+                </div>
+
+                <!-- Product Details -->
+                <div class="card-body">
+
+                    <h5 class="card-title fw-bold">
+
+                        {{ product[1] }}
+
+                    </h5>
+
+                    <h4 class="text-success">
+
+                        ₹{{ product[2] }}
+
+                    </h4>
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">
+                            <strong>Size:</strong>
+                            {{ product[3] }}
+                        </li>
+
+                        <li class="list-group-item">
+                            <strong>Brand:</strong>
+                            {{ product[5] }}
+                        </li>
+
+                        <li class="list-group-item">
+                            <strong>Category:</strong>
+                            {{ product[6] }}
+                        </li>
+
+                        <li class="list-group-item">
+                            <strong>Color:</strong>
+                            {{ product[7] }}
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Button -->
+               <div class="card-footer bg-white border-0">
+
+                    <a href="{{ url_for('add_to_cart', product_id=product[0]) }}"
+                       class="btn btn-primary w-100">
+
+                        Add To Cart
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="alert alert-warning text-center">
+
+        No products found.
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,174 @@
+{% extends "adminbase.html" %}
+
+{% block body %}
+
+<div class="container">
+
+    <!-- Welcome Section -->
+    <div class="card shadow-sm border-0 mb-4">
+
+        <div class="card-body">
+
+            <h2 class="fw-bold text-primary">
+                Welcome to NexWear Admin Dashboard
+            </h2>
+
+            <p class="text-muted mb-0">
+                Manage categories, products, users and administrators from one place.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row g-4">
+
+        <div class="col-md-3">
+
+            <div class="card text-center shadow-sm border-0">
+
+                <div class="card-body">
+
+                    <h1 class="text-primary">
+                        {{ total_categories }}
+                    </h1>
+
+                    <h5>
+                        Categories
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card text-center shadow-sm border-0">
+
+                <div class="card-body">
+
+                    <h1 class="text-success">
+                        {{ total_products }}
+                    </h1>
+
+                    <h5>
+                        Products
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card text-center shadow-sm border-0">
+
+                <div class="card-body">
+
+                    <h1 class="text-warning">
+                        {{ total_users }}
+                    </h1>
+
+                    <h5>
+                        Users
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card text-center shadow-sm border-0">
+
+                <div class="card-body">
+
+                    <h1 class="text-danger">
+                        {{ total_admins }}
+                    </h1>
+
+                    <h5>
+                        Admins
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card shadow-sm border-0 mt-4">
+
+        <div class="card-header bg-primary text-white">
+
+            <h5 class="mb-0">
+                Quick Actions
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="d-flex flex-wrap gap-3">
+
+                <a href="{{ url_for('add_category') }}"
+                   class="btn btn-outline-primary">
+
+                    Add Category
+
+                </a>
+
+                <a href="{{ url_for('add_product') }}"
+                   class="btn btn-outline-success">
+
+                    Add Product
+
+                </a>
+
+                <a href="{{ url_for('category_list') }}"
+                   class="btn btn-outline-primary">
+
+                    Category List
+
+                </a>
+
+                <a href="{{ url_for('product_list') }}"
+                   class="btn btn-outline-success">
+
+                    Product List
+
+                </a>
+
+                <a href="{{ url_for('user_list') }}"
+                   class="btn btn-outline-warning">
+
+                    User List
+
+                </a>
+
+                <a href="{{ url_for('admin_list') }}"
+                   class="btn btn-outline-danger">
+
+                    Admin List
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

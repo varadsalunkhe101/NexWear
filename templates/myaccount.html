@@ -1,0 +1,207 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-lg">
+
+                <!-- Profile Header -->
+                <div class="card-header bg-primary text-white text-center py-5">
+
+                    <i class="fa-solid fa-user-circle fa-5x mb-3"></i>
+
+                    <h2 class="fw-bold">
+
+                        <i class="fa-solid fa-id-card"></i>
+
+                        My Profile
+
+                    </h2>
+
+                    <p class="mb-0">
+
+                        Welcome, {{ user[1] }}
+
+                    </p>
+
+                </div>
+
+                <!-- Profile Details -->
+                <div class="card-body p-4">
+
+                    <div class="row g-4">
+
+                        <!-- Full Name -->
+                        <div class="col-md-6">
+
+                            <div class="card bg-light border-0 h-100">
+
+                                <div class="card-body">
+
+                                    <h6 class="text-primary">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                        Full Name
+
+                                    </h6>
+
+                                    <p class="mb-0 fw-semibold">
+
+                                        {{ user[1] }}
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-6">
+
+                            <div class="card bg-light border-0 h-100">
+
+                                <div class="card-body">
+
+                                    <h6 class="text-success">
+
+                                        <i class="fa-solid fa-envelope"></i>
+
+                                        Email Address
+
+                                    </h6>
+
+                                    <p class="mb-0 fw-semibold">
+
+                                        {{ user[4] }}
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="col-md-6">
+
+                            <div class="card bg-light border-0 h-100">
+
+                                <div class="card-body">
+
+                                    <h6 class="text-warning">
+
+                                        <i class="fa-solid fa-phone"></i>
+
+                                        Contact Number
+
+                                    </h6>
+
+                                    <p class="mb-0 fw-semibold">
+
+                                        {{ user[3] }}
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Address -->
+                        <div class="col-md-6">
+
+                            <div class="card bg-light border-0 h-100">
+
+                                <div class="card-body">
+
+                                    <h6 class="text-danger">
+
+                                        <i class="fa-solid fa-location-dot"></i>
+
+                                        Address
+
+                                    </h6>
+
+                                    <p class="mb-0 fw-semibold">
+
+                                        {{ user[2] }}
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white text-center py-3">
+
+                    <a href="{{ url_for('userhome') }}"
+                       class="btn btn-primary">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        Back To Home
+
+                    </a>
+
+                </div>
+                <!-- Quick Actions -->
+                <div class="card-body pt-0">
+
+                    <div class="row g-3 mt-2">
+
+                        <div class="col-md-6">
+
+                            <a href="{{ url_for('cart') }}"
+                               class="btn btn-warning w-100 py-3">
+
+                                <i class="fa-solid fa-cart-shopping"></i>
+
+                                My Cart
+
+                            </a>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <a href="{{ url_for('my_orders') }}"
+                               class="btn btn-success w-100 py-3">
+
+                                <i class="fa-solid fa-box"></i>
+
+                                My Orders
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

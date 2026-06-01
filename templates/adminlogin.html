@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NexWear - Admin Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='bootstrap.min.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        body{
+            font-family:'Poppins',sans-serif;
+            background-color:#f8f9fa;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="row justify-content-center align-items-center min-vh-100">
+
+        <div class="col-lg-10">
+
+            <div class="card border-0 shadow">
+
+                <div class="row g-0">
+
+                    <!-- Left Side -->
+
+                    <div class="col-md-5 bg-primary text-white p-5 d-flex flex-column justify-content-center">
+
+                        <h1 class="fw-bold">
+                            NexWear Admin
+                        </h1>
+
+                        <p class="mt-3">
+                            Secure administrator access to manage products,
+                            categories, users and platform operations.
+                        </p>
+
+                    </div>
+
+                    <!-- Right Side -->
+
+                    <div class="col-md-7">
+
+                        <div class="card-body p-5">
+
+                            <div class="text-center mb-4">
+
+                                <h2 class="text-primary fw-bold">
+                                    Admin Login
+                                </h2>
+
+                                <p class="text-muted">
+                                    Secure access for administrators
+                                </p>
+
+                            </div>
+
+                            <form action="{{ url_for('adminlogin') }}"
+                                  method="POST">
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+                                        Admin Email
+                                    </label>
+
+                                    <input type="email"
+                                           name="email"
+                                           class="form-control"
+                                           required>
+
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <label class="form-label">
+                                        Password
+                                    </label>
+
+                                    <input type="password"
+                                           name="password"
+                                           class="form-control"
+                                           required>
+
+                                </div>
+
+                                <div class="text-end mb-3">
+
+                                    <a href="#"
+                                       class="text-decoration-none">
+                                        Forgot Password?
+                                    </a>
+
+                                </div>
+
+                                <button type="submit"
+                                        class="btn btn-primary w-100">
+
+                                    Login
+
+                                </button>
+
+                                <button type="reset"
+                                        class="btn btn-outline-danger w-100 mt-3">
+
+                                    Cancel
+
+                                </button>
+
+                                <div class="text-center mt-4">
+
+                                    <p class="mb-1">
+                                        Don't have an admin account?
+                                    </p>
+
+                                    <a href="{{ url_for('adminregister') }}"
+                                       class="text-decoration-none">
+
+                                        Create Admin Account
+
+                                    </a>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+</html>
